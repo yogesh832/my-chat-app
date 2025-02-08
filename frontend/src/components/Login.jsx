@@ -28,7 +28,7 @@ const Login = () => {
       dispatch(setAuthUser(res.data));
     } catch (error) {
       toast.error(error.response.data.message);
-      console.log(error);
+      console.error("Login failed:", error.response?.data || error.message);
     }
     setUser({
       username: "",
