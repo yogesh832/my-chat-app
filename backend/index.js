@@ -18,22 +18,15 @@ app.use(cookieParser());
 
 
 
-// Define allowed origins
-const allowedOrigins = [
-  "http://localhost:3000", 
-  "https://your-frontend-deployed-url.com"
-];
+
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true, // Allows sending cookies (important for auth)
+  origin: ["http://localhost:3000", "https://my-chat-app-v3z1.vercel.app"],
+  credentials: true, // Allow cookies & authentication
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+  allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
 };
+
 
 // Use CORS middleware
 app.use(cors(corsOptions));
