@@ -4,7 +4,7 @@ import toast from "react-hot-toast"
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from '../redux/userSlice';
-import { BASE_URL } from '..';
+import { BASE_URL } from '../index.js';
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -27,7 +27,7 @@ const Login = () => {
       console.log(res);
       dispatch(setAuthUser(res.data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.message);
       console.error("Login failed:", error.response?.data || error.message);
     }
     setUser({
