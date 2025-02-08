@@ -21,8 +21,7 @@ app.use(cookieParser());
 
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://my-chat-pq69pzsl9-yogesh-upadhayays-projects.vercel.app/"
-  ],
+  origin: "*",
   credentials: true, // Allow cookies & authentication
   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
